@@ -1,10 +1,10 @@
-FROM node:6.7
-
+FROM node:8.1
 WORKDIR /app
 
-COPY package.json /app/
+COPY package.json ./
+RUN npm install
 
-RUN mkdir -p /app/out
+RUN rm package.json
+RUN rm package-lock.json
 
-RUN npm install --production --loglevel verbose
-
+CMD /bin/true
